@@ -1,0 +1,46 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* register section style */
+.register-right-col{
+    background: url(/src/images/login-register-bg.jpg) no-repeat;
+    background-position: left;
+    background-size: cover;
+    width: 100%;
+    height: 49.5rem;
+}
+
+.register-btn{
+    background-color: #00b389!important;
+    border-color: #00b389!important;
+    margin-left: 6rem;
+    border-radius: 1rem!important;
+}
+.login-link{
+    color: #00b389;
+    font-weight: bold;
+}
+.login-link:hover{
+    text-decoration: none;
+    color: #00b389;
+    font-weight: bold;
+}
+
+.register-left-card{
+    margin: 5rem 10rem;
+    padding: 1rem 3rem;
+    border: none!important;
+}
+
+.register-left-card .form-control{
+    border-radius: 1rem!important;
+}
+
+.brand-logo-register-page{
+    margin: 1rem 0 2rem 0;
+    text-align: center;
+    color: #00b389;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
