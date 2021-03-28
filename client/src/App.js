@@ -6,8 +6,7 @@ import LoginPage from "./components/Home-section/Nav-layout/LoginPage";
 import RegisterPage from "./components/Home-section/Nav-layout/RegisterPage";
 import PrivateRoute from "./components/authorization-authenticate-section/PrivateRoute";
 import Email from "./components/Email-section/Email";
-import Dashboard from './components/Home-section/Dashboard'
-
+import UpdateEmail from './components/Email-section/UpdateEmails'
 function App() {
   return (
     <BrowserRouter>
@@ -17,7 +16,7 @@ function App() {
         <PrivateRoute exact path="/" component={CreateRoom} />
         <Route exact path="/room/:roomID" component={Room} />
         <PrivateRoute exact path="/email" component={Email} />
-        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path="/update-email" component={UpdateEmail}  />
       </Switch>
     </BrowserRouter>
   );
