@@ -73,8 +73,11 @@ exports.forgotpswd=async(req,res)=>{
           subject:'Reset passsword',
           html:`
           <p>You requested for reset password</p>
-          <h2> Please click on this <a href="http://localhost:3001/reset-password/${req.body.email}/${resetToken}">http://new-database/_/auth/reset_pwd/${req.body.email}?token=${resetToken}</a> link for reset password- </h2><br/>`,    };
-  
+         
+            <h2> Please click on this <a href="http://localhost:3001/reset-password/${req.body.email}/${resetToken}">http://new-database/_/auth/reset_pwd/${req.body.email}?token=${resetToken}</a> link for reset password- </h2>;
+          
+         
+          <br/>`,    }
           transporter.sendMail(mailOptions,function(error,info){
               if(error){
                   console.log(error);
@@ -121,22 +124,22 @@ console.log(resetToken);
               if(err){
                   if(err.name=="TokenExpiredError"){
                       res.status(420).json({
-                          message:"Token timed out!",
+                          error:"Token timed out!",
                           
                       })
                   }
                   else{
                       res.status(421).json({
-                          message:"Incorrect Token"
+                          error:"Incorrect Token"
                       })
                   }
               }
               else{
                   if(req.body.newpswd===req.body.cnfrmnewpswd){
-                  bcrypt.hash(req.body.newpswd,8)
-                  .then((hashedPassword)=>{
-                      return User.findOneAndUpdate({_id:user._id},{password:hashedPassword},{new:true})
-                  })
+                  // bcrypt.hash(req.body.newpswd,8)
+                  // .then((hashedPassword)=>{
+                      return User.findOneAndUpdate({_id:user._id},{password:req.body.newpswd},{new:true})
+                  // })
                   .then((user)=>{
                       if(user){
                           res.status(200).json({
@@ -145,19 +148,19 @@ console.log(resetToken);
                       }
                       else{
                           res.status(401).json({
-                              message:`Profile of 1'${user._id} not found!`
+                              error:`Profile of 1'${user._id} not found!`
                           })
                       }
                   })
                   .catch((err)=>{
                       res.status(400).json({
-                          message:`Error updating  password!`
+                          error:`Error updating  password!`
                       })
                   })  
               }
           else{
               res.status(402).json({
-                  message:"password not matching"
+                  error:"password not matching"
               })
           }
       }
@@ -167,7 +170,7 @@ console.log(resetToken);
       else{
       
           res.status(405).json({
-              message:'Authentication token not found!'
+              error:'Authentication token not found!'
           })
       }
   }
