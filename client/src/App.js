@@ -8,20 +8,21 @@ import ResetPassword from "./components/Home-section/Nav-layout/ResetPassword";
 import RegisterPage from "./components/Home-section/Nav-layout/RegisterPage";
 import Error from "./components/Home-section/Nav-layout/Error";
 import PrivateRoute from "./components/authorization-authenticate-section/PrivateRoute";
+import PublicRoute from "./components/authorization-authenticate-section/PublicRoute";
 import Email from "./components/Email-section/Email";
-import Dashboard from './components/Home-section/Dashboard'
+import Dashboard from './components/Home-section/Dashboard';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/register" component={RegisterPage} />
+        <PublicRoute restricted={false} exact path="/login" component={LoginPage} />
+        <PublicRoute restricted ={true} exact path="/register" component={RegisterPage} />
         <PrivateRoute exact path="/" component={CreateRoom} />
-        <Route exact path="/room/:roomID" component={Room} />
-        <Route exact path="/error" component={Error} />
-        <Route exact path="/forgot-password" component={ForgetPassword} />
-        <Route exact path='/reset-password/:email/:resettoken' component={ResetPassword}/>
+        <PublicRoute restricted={false} exact path="/room/:roomID" component={Room} />
+        <PublicRoute restricted={false} exact path="/error" component={Error} />
+        <PublicRoute restricted={false} exact path="/forgot-password" component={ForgetPassword} />
+        <PublicRoute restricted={false} exact path='/reset-password/:email/:resettoken' component={ResetPassword}/>
         <PrivateRoute exact path="/email" component={Email} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
       </Switch>
