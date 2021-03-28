@@ -14,6 +14,7 @@ const ForgetPassword = () => {
           console.log(data.error)
         } else {
           setemail("");
+          alert("Email sent!");
         }
       })
       .catch((err) => {
