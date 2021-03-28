@@ -31,7 +31,6 @@ const CreateRoom = (props) => {
             relativeTwo: data.relativeTwo,
             relativeThree: data.relativeThree,
           });
-          //   console.log(data._id);
         }
       })
       .catch((err) => {
@@ -66,12 +65,20 @@ const CreateRoom = (props) => {
          <Navbar style={{marginTop:".8rem"}} >
              <Navbar.Brand href="/" className="brand-logo-dashboard">UMMED</Navbar.Brand>
              <Navbar.Collapse className="justify-content-end ">
-                 <Nav.Link href="#/show-email" className="show-email">Show emails</Nav.Link>
+                 <div className="dropdown">
+                      <button className="dropbtn show-email">Show emails</button>
+                      <div className="dropdown-content">
+                      <span>{doctorMail}</span>
+                      <span>{relativeOne}</span>
+                      <span>{relativeTwo}</span>
+                      <span>{relativeThree}</span>
+                      </div>
+                  </div>
                  <Button  type="submit" className="logout-btn" onClick={handleLogout}>
                              Logout
                   </Button>
               </Navbar.Collapse>
-          </Navbar>  
+          </Navbar>   
           <Row>
              <Col xs={5} style={{backgroundCmbolor:"red"}}>
                            <div className="create-update-div">
@@ -82,16 +89,13 @@ const CreateRoom = (props) => {
                              CreateRoom
                            </Button>
                            <Button  type="submit" className="update-btn">
-                             UpdateEmail
+                             <a href="/update-email">UpdateEmail</a>
                            </Button>
                            </div>
              </Col>
-             <Col xs={7} >
-                           
-                <div className='dashboard-right-col'>
-                  
-                </div>
-                
+             <Col xs={7} >          
+                <div className='dashboard-right-col'>     
+                </div>   
              </Col>
            </Row> 
        </Container>
