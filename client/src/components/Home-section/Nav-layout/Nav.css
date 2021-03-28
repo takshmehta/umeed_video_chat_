@@ -11,6 +11,15 @@
     height: 49.5rem;
 }
 
+.frgtimg{
+    background: url(/src/images/forget-reset-bg.jpg) no-repeat;
+    background-position: left;
+    background-size: cover;
+    width: 100%;
+    height: 49.5rem;
+}
+
+
 .register-btn{
     background-color: #00b389!important;
     border-color: #00b389!important;
@@ -43,4 +52,13 @@
     color: #00b389;
     font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
+}
+
+.heading1{
+    margin: 6rem 0 2rem 0;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    color: #00b389;
+    font-weight: bold;
+    font-size: 24px;
 }

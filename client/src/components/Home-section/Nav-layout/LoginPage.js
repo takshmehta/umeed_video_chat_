@@ -67,6 +67,9 @@ const LoginPage = () => {
                                       required
                                     />
                            </Form.Group>
+                           <div className="w-100 text-right mt-1">
+                            <Link to="/forgot-password" className="login-link">ForgotPassword</Link>
+                       </div>
                            <Button  type="submit" className="register-btn">
                              Login
                            </Button>
