@@ -17,12 +17,12 @@ function App() {
     <BrowserRouter>
       <Switch>
         <PublicRoute restricted={false} exact path="/login" component={LoginPage} />
-        <PublicRoute restricted ={true} exact path="/register" component={RegisterPage} />
-        <PrivateRoute exact path="/" component={CreateRoom} />
         <PublicRoute restricted={false} exact path="/room/:roomID" component={Room} />
         <PublicRoute restricted={false} exact path="/error" component={Error} />
         <PublicRoute restricted={false} exact path="/forgot-password" component={ForgetPassword} />
         <PublicRoute restricted={false} exact path='/reset-password/:email/:resettoken' component={ResetPassword}/>
+        <PublicRoute restricted ={true} exact path="/register" component={RegisterPage} />
+        <PrivateRoute exact path="/" component={CreateRoom} /> 
         <PrivateRoute exact path="/email" component={Email} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
       </Switch>
