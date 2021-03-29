@@ -2,7 +2,6 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const expressJwt = require("express-jwt");
 const nodemailer = require("nodemailer");
-const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const { v4 } = require("uuid");
 
@@ -64,11 +63,9 @@ exports.forgotpswd = async (req, res) => {
   const email = req.body.email;
   const user = await User.findOne({ email: req.body.email });
   if (user) {
-    console.log(user._id);
     const resetToken = jwt.sign({ _id: user._id }, "asdfghjklqwertyuiop", {
       expiresIn: "300000",
     });
-    console.log(resetToken);
     var mailOptions = {
       from: "umeed123890@gmail.com",
       to: email,
@@ -100,10 +97,6 @@ exports.forgotpswd = async (req, res) => {
 exports.resetPassword = async (req, res) => {
   const resetToken = req.params.resettoken;
   var user1 = User.findOne({ email: req.params.email });
-  // console.log(req.params.email);
-  // console.log(req.body.newpswd);
-  // console.log(req.body.cnfrmnewpswd);
-  // console.log(resetToken);
   if (resetToken) {
     jwt.verify(resetToken, "asdfghjklqwertyuiop", (err, user) => {
       if (err) {
@@ -118,7 +111,6 @@ exports.resetPassword = async (req, res) => {
           });
         }
       } else {
-        console.log(user);
         if (req.body.newpswd === req.body.cnfrmnewpswd) {
           const newSalt = v4();
           const encry_password = crypto
@@ -131,7 +123,6 @@ exports.resetPassword = async (req, res) => {
             { new: true }
           )
             .then((user) => {
-              // console.log(user);
               if (user) {
                 return res.status(200).json({
                   message: `Password of ${user.email} changed successfully!`,
@@ -148,7 +139,6 @@ exports.resetPassword = async (req, res) => {
                 error: `Error updating  password!`,
               });
             });
-          // );
         } else {
           return res.status(402).json({
             error: "password not matching",
