@@ -8,21 +8,26 @@ import ResetPassword from "./components/Home-section/Nav-layout/ResetPassword";
 import RegisterPage from "./components/Home-section/Nav-layout/RegisterPage";
 import Error from "./components/Home-section/Nav-layout/Error";
 import PrivateRoute from "./components/authorization-authenticate-section/PrivateRoute";
+import ProtectedRoute from "./components/authorization-authenticate-section/ProtectedRoute";
 import Email from "./components/Email-section/Email";
-import UpdateEmail from './components/Email-section/UpdateEmails'
+import UpdateEmail from "./components/Email-section/UpdateEmails";
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/register" component={RegisterPage} />
+        <ProtectedRoute exact path="/login" component={LoginPage} />
+        <ProtectedRoute exact path="/register" component={RegisterPage} />
         <PrivateRoute exact path="/" component={CreateRoom} />
         <Route exact path="/room/:roomID" component={Room} />
         <Route exact path="/error" component={Error} />
         <Route exact path="/forgot-password" component={ForgetPassword} />
-        <Route exact path='/reset-password/:email/:resettoken' component={ResetPassword}/>
+        <Route
+          exact
+          path="/reset-password/:email/:resettoken"
+          component={ResetPassword}
+        />
         <PrivateRoute exact path="/email" component={Email} />
-        <PrivateRoute exact path="/update-email" component={UpdateEmail}  />
+        <PrivateRoute exact path="/update-email" component={UpdateEmail} />
       </Switch>
     </BrowserRouter>
   );
