@@ -69,12 +69,8 @@ const Room = (props) => {
             peerID: payload.callerID,
             peer,
           });
-          const peerObj={ 
-            peer,
-            peerID: payload.callerID
-            
-        };
-          setPeers(users => [...users, peerObj]); 
+         
+          setPeers( [ ...peersRef.current ]); 
           
         });
 
@@ -151,9 +147,9 @@ const Room = (props) => {
   console.log(peers);
   return (
     <Container>
-      <StyledVideo  ref={userVideo} autoPlay playsInline style={{backgroundColor:"red"}} />
+      <StyledVideo  ref={userVideo} autoPlay playsInline  />
       {peers.map((peer) => {
-        return <Video key={peer.peerID} peer={peer.peer} style={{backgroundColor:"red"}} />;
+        return <Video key={peer.peerID} peer={peer.peer}  />;
       })}
       <div className='footer'>
         <div>
