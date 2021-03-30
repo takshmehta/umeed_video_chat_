@@ -1,43 +1,46 @@
-*{
-    font-family: 'Roboto', sans-serif;
+* {
+  font-family: "Roboto", sans-serif;
 }
 /* register section style */
-.email-right-col{
-    background: url(/src/images/add-email-bg.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 49.5rem;
-    object-fit: contain;
+.email-right-col {
+  background: url(/src/images/add-email-bg.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 49.5rem;
+  object-fit: contain;
 }
 
-.add-email-submit-btn{
-    background-color: #00b389!important;
-    border-color: #00b389!important;
-    margin-left: 6rem;
-    border-radius: 1rem!important;
+.add-email-submit-btn {
+  background-color: #00b389 !important;
+  border-color: #00b389 !important;
+  margin-left: 6rem;
+  border-radius: 1rem !important;
 }
 
-
-.email-left-card{
-    margin: 5rem 12rem;
-    padding: 1rem 3rem;
-    border: none!important;
+.email-left-card {
+  margin: 5rem 12rem;
+  padding: 1rem 3rem;
+  border: none !important;
 }
 
-.email-left-card .form-control{
-    border-radius: 1rem!important;
+.email-left-card .form-control {
+  border-radius: 1rem !important;
 }
 
-.brand-logo-email-page{
-    text-align: center;
-    color: #00b389;
-    font-weight: bold;
-    font-family: 'Ubuntu', sans-serif;
+.brand-logo-email-page {
+  text-align: center;
+  color: #00b389;
+  font-weight: bold;
+  font-family: "Ubuntu", sans-serif;
 }
 
-.email-header{
-    margin: 1rem 0 2rem 0;
-    color: #00b389;
-    font-weight: bold;
+.email-header {
+  margin: 1rem 0 2rem 0;
+  color: #00b389;
+  font-weight: bold;
+}
+
+.emailForm {
+  width: 270px !important;
 }
