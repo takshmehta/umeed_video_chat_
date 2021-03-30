@@ -2,19 +2,28 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
 import { isAuthenticated } from "../../components/authorization-authenticate-section";
-import { updateEmails, viewEmails } from "../../components/authorization-authenticate-section/emailHelper";
-import {Redirect} from 'react-router-dom'
-import './Email.css'
+import {
+  updateEmails,
+  viewEmails,
+} from "../../components/authorization-authenticate-section/emailHelper";
+import { Redirect } from "react-router-dom";
+import "./Email.css";
 const UpdateEmails = () => {
   const [values, setValues] = useState({
     doctorMail: "",
     relativeOne: "",
     relativeTwo: "",
     relativeThree: "",
-    success:false
+    success: false,
   });
 
-  const { doctorMail, relativeOne, relativeTwo, relativeThree ,success} = values;
+  const {
+    doctorMail,
+    relativeOne,
+    relativeTwo,
+    relativeThree,
+    success,
+  } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
@@ -47,12 +56,9 @@ const UpdateEmails = () => {
         if (data.error) {
           console.log(data.error);
         } else {
-          updateEmails(user._id, token, data._id, { ...values })
-          .then(res=>{
-            setValues({...values,success:true})
-            
-          })
-
+          updateEmails(user._id, token, data._id, { ...values }).then((res) => {
+            setValues({ ...values, success: true });
+          });
         }
       })
       .catch((err) => {
@@ -61,75 +67,76 @@ const UpdateEmails = () => {
   };
 
   const performRedirect = () => {
-    if(success){
+    if (success) {
       return <Redirect to="/" />;
     }
-    }
-
+  };
 
   const { user, token } = isAuthenticated();
 
   return (
     <Container fluid>
-    <Row>
-      <Col xs={6}>
+      <Row>
+        <Col xs={6}>
           <Card className="email-left-card">
-                <h1 className='brand-logo-email-page'>UMEED</h1>
-                <h5 className="text-center mb-4 email-header">Update emails</h5>
-                <Form onSubmit={Update}>
-                    <Form.Group id="email">
-                      <Form.Label>DoctorEmail</Form.Label>
-                      <Form.Control
-                        type="email"
-                        name=""
-                        value={doctorMail}
-                        onChange={handleChange("doctorMail")}
-                        required
-                      />
-                    </Form.Group>
-                    <Form.Group id="email">
-                      <Form.Label>RelativeOneEmail</Form.Label>
-                      <Form.Control
-                        type="email"
-                        name=""
-                        value={relativeOne}
-                        onChange={handleChange("relativeOne")}
-                        required
-                      />
-                    </Form.Group>
-                    <Form.Group id="email">
-                      <Form.Label>RelativeTwoEmail</Form.Label>
-                      <Form.Control
-                        type="email"
-                        name=""
-                        value={relativeTwo}
-                        onChange={handleChange("relativeTwo")}
-                        required
-                      />
-                    </Form.Group>
-                    <Form.Group id="email">
-                      <Form.Label>RelativeThreeEmail</Form.Label>
-                      <Form.Control
-                        type="email"
-                        name=""
-                        value={relativeThree}
-                        onChange={handleChange("relativeThree")}
-                        required
-                      />
-                    </Form.Group>
-                    <Button className="add-email-submit-btn" type="submit">
-                      Update
-                    </Button>
-                  </Form>                            
+            <h1 className="brand-logo-email-page">UMEED</h1>
+            <h5 className="text-center mb-4 email-header">Update emails</h5>
+            <Form onSubmit={Update}>
+              <Form.Group id="email">
+                <Form.Label>DoctorEmail</Form.Label>
+                <Form.Control
+                  type="email"
+                  name=""
+                  value={doctorMail}
+                  onChange={handleChange("doctorMail")}
+                  required
+                  className="emailForm"
+                />
+              </Form.Group>
+              <Form.Group id="email">
+                <Form.Label>RelativeOneEmail</Form.Label>
+                <Form.Control
+                  type="email"
+                  name=""
+                  value={relativeOne}
+                  onChange={handleChange("relativeOne")}
+                  required
+                  className="emailForm"
+                />
+              </Form.Group>
+              <Form.Group id="email">
+                <Form.Label>RelativeTwoEmail</Form.Label>
+                <Form.Control
+                  type="email"
+                  name=""
+                  value={relativeTwo}
+                  onChange={handleChange("relativeTwo")}
+                  required
+                  className="emailForm"
+                />
+              </Form.Group>
+              <Form.Group id="email">
+                <Form.Label>RelativeThreeEmail</Form.Label>
+                <Form.Control
+                  type="email"
+                  name=""
+                  value={relativeThree}
+                  onChange={handleChange("relativeThree")}
+                  required
+                  className="emailForm"
+                />
+              </Form.Group>
+              <Button className="add-email-submit-btn" type="submit">
+                Update
+              </Button>
+            </Form>
           </Card>
-      </Col>
-      <Col xs={6} className='email-right-col'></Col>
-    </Row>
-    {performRedirect()}
-</Container>
-  
+        </Col>
+        <Col xs={6} className="email-right-col"></Col>
+      </Row>
+      {performRedirect()}
+    </Container>
   );
 };
 
 export default UpdateEmails;
-
