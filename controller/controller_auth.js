@@ -4,6 +4,7 @@ const expressJwt = require("express-jwt");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const { v4 } = require("uuid");
+const { validationResult } = require("express-validator");
 
 var transporter = nodemailer.createTransport({
   service: "gmail",
@@ -26,21 +27,44 @@ exports.getUserById = (req, res, next, id) => {
 };
 
 exports.signup = (req, res) => {
-  const user = new User(req.body);
-
-  user.save((err, user) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      error: errors.array()[0].msg,
+    });
+  }
+  User.findOne({ email: req.body.email }, (err, userindb) => {
     if (err) {
-      return res.json({ error: "User not saved", err });
+      console.log(err);
     }
-    const token = jwt.sign({ id: user._id }, "mysecret");
+    if (userindb) {
+      return res.status(401).json({
+        error: "A user with this email already exists.",
+      });
+    } else {
+      const user = new User(req.body);
 
-    res.cookie("token", token, { expire: new Date() + 5555 });
-    const { _id, name, email } = user;
-    return res.json({ token, user: { _id, name, email } });
+      user.save((err, user) => {
+        if (err) {
+          return res.json({ error: "User not saved", err });
+        }
+        const token = jwt.sign({ id: user._id }, "mysecret");
+
+        res.cookie("token", token, { expire: new Date() + 5555 });
+        const { _id, name, email } = user;
+        return res.json({ token, user: { _id, name, email } });
+      });
+    }
   });
 };
 
 exports.signin = (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      error: errors.array()[0].msg,
+    });
+  }
   const password = req.body.password;
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err || !user) {
@@ -48,7 +72,7 @@ exports.signin = (req, res) => {
     }
 
     if (!user.authenticate(password)) {
-      return res.json({ error: "Password error" });
+      return res.json({ error: "Incorrect password" });
     }
 
     const token = jwt.sign({ id: user._id }, "mysecret");
@@ -60,6 +84,14 @@ exports.signin = (req, res) => {
 };
 
 exports.forgotpswd = async (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      error: errors.array()[0].msg,
+    });
+  }
+
   const email = req.body.email;
   const user = await User.findOne({ email: req.body.email });
   if (user) {
@@ -89,12 +121,19 @@ exports.forgotpswd = async (req, res) => {
     });
   } else {
     return res.status(401).json({
-      message: `Profile of ${email} not found!`,
+      error: `Profile of ${email} not found!`,
     });
   }
 };
 
 exports.resetPassword = async (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      error: errors.array()[0].msg,
+    });
+  }
   const resetToken = req.params.resettoken;
   var user1 = User.findOne({ email: req.params.email });
   if (resetToken) {
@@ -141,7 +180,7 @@ exports.resetPassword = async (req, res) => {
             });
         } else {
           return res.status(402).json({
-            error: "password not matching",
+            error: "Both the passwords do not match.",
           });
         }
       }
