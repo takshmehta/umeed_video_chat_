@@ -6,11 +6,12 @@ const crypto = require("crypto");
 const { v4 } = require("uuid");
 const { validationResult } = require("express-validator");
 
+
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "umeed123890@gmail.com",
-    pass: "qweqwe@123",
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PSWD,
   },
 });
 
@@ -48,7 +49,7 @@ exports.signup = (req, res) => {
         if (err) {
           return res.json({ error: "User not saved", err });
         }
-        const token = jwt.sign({ id: user._id }, "mysecret");
+        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
 
         res.cookie("token", token, { expire: new Date() + 5555 });
         const { _id, name, email } = user;
@@ -75,7 +76,7 @@ exports.signin = (req, res) => {
       return res.json({ error: "Incorrect password" });
     }
 
-    const token = jwt.sign({ id: user._id }, "mysecret");
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
 
     res.cookie("token", token, { expire: new Date() + 5555 });
     const { _id, name, email } = user;
@@ -95,11 +96,11 @@ exports.forgotpswd = async (req, res) => {
   const email = req.body.email;
   const user = await User.findOne({ email: req.body.email });
   if (user) {
-    const resetToken = jwt.sign({ _id: user._id }, "asdfghjklqwertyuiop", {
+    const resetToken = jwt.sign({ _id: user._id }, process.env.RESET_PSWD_JWT_KEY, {
       expiresIn: "300000",
     });
     var mailOptions = {
-      from: "umeed123890@gmail.com",
+      from: process.env.EMAIL,
       to: email,
       subject: "Reset passsword",
       html: `
@@ -137,7 +138,7 @@ exports.resetPassword = async (req, res) => {
   const resetToken = req.params.resettoken;
   var user1 = User.findOne({ email: req.params.email });
   if (resetToken) {
-    jwt.verify(resetToken, "asdfghjklqwertyuiop", (err, user) => {
+    jwt.verify(resetToken, process.env.RESET_PSWD_JWT_KEY, (err, user) => {
       if (err) {
         if (err.name == "TokenExpiredError") {
           console.log(err);
@@ -153,7 +154,7 @@ exports.resetPassword = async (req, res) => {
         if (req.body.newpswd === req.body.cnfrmnewpswd) {
           const newSalt = v4();
           const encry_password = crypto
-            .createHmac("sha256", newSalt)
+            .createHmac(process.env.KEY, newSalt)
             .update(req.body.newpswd)
             .digest("hex");
           User.findOneAndUpdate(
@@ -198,7 +199,7 @@ exports.signout = (req, res) => {
 };
 
 exports.isSignedIn = expressJwt({
-  secret: "mysecret",
+  secret: process.env.SECRET_KEY,
   algorithms: ["HS256"],
   userProperty: "auth",
 });

@@ -42,7 +42,7 @@ userSchema.methods = {
 
     try {
       return crypto
-        .createHmac("sha256", this.salt)
+        .createHmac(process.env.KEY, this.salt)
         .update(plainPassword)
         .digest("hex");
     } catch (error) {
