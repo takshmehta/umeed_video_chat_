@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const http = require("http");
 const app = express();
@@ -51,7 +52,7 @@ io.on("connection", (socket) => {
       room = room.filter((id) => id !== socket.id);
       users[roomID] = room;
     }
-    socket.broadcast.emit('user left',socket.id);
+    socket.broadcast.emit('user left', socket.id);
   });
 });
 
@@ -60,7 +61,8 @@ const PORT = process.env.port || 3000;
 app.use(bodyparser.json());
 
 //connecting with database
-db = "mongodb://localhost:27017/newdb";
+db = process.env.DATABASE_URI;
+
 mongoose
   .connect(db, {
     useNewUrlParser: true,
