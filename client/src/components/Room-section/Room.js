@@ -3,12 +3,11 @@ import io from "socket.io-client";
 import Peer from "simple-peer";
 import styled from "styled-components";
 import './Dashboard.css'
-
 const Container = styled.div`
   padding: 20px;
   display: flex;
   height: 100vh;
-  background:#000;
+  background:#111;
   margin: auto;
   flex-wrap: wrap;
 `;
@@ -16,6 +15,7 @@ const Container = styled.div`
 const StyledVideo = styled.video`
   height: 40%;
   width: 50%;
+
  
 `;
 
@@ -28,7 +28,7 @@ const Video = (props) => {
     });
   }, []);
 
-  return <StyledVideo playsInline autoPlay ref={ref} className="bg-video-tag" />;
+  return <StyledVideo playsInline autoPlay ref={ref} className="bg-video-tag"  />;
 };
 
 const videoConstraints = {
@@ -130,38 +130,51 @@ const Room = (props) => {
     let enabled = userVideo.current.srcObject.getVideoTracks()[0].enabled;
     
     if (enabled) {
+      let videoElement=document.querySelector('.fa-video');
+      videoElement.classList.remove('fa-video');
+      videoElement.classList.add('fa-video-slash');
       userVideo.current.srcObject.getVideoTracks()[0].enabled = false;
     } else {
+      let videoElement=document.querySelector('.fa-video-slash');
+      videoElement.classList.remove('fa-video-slash');
+      videoElement.classList.add('fa-video');
       userVideo.current.srcObject.getVideoTracks()[0].enabled = true;
     }
   };
   const audioToggle = () =>{
     let enabled = userVideo.current.srcObject.getAudioTracks()[0].enabled;
-    console.log(enabled);
     if (enabled) {
+      let audioElement=document.querySelector('.fa-microphone');
+      audioElement.classList.remove('fa-microphone');
+      audioElement.classList.add('fa-microphone-slash');
       userVideo.current.srcObject.getAudioTracks()[0].enabled = false;
     } else {
+      let audioElement=document.querySelector('.fa-microphone-slash');
+      audioElement.classList.remove('fa-microphone-slash');
+      audioElement.classList.add('fa-microphone');
       userVideo.current.srcObject.getAudioTracks()[0].enabled = true;
     }
   };
   console.log(peers);
   return (
     <Container>
-      <StyledVideo  ref={userVideo} autoPlay playsInline  />
+      <StyledVideo  ref={userVideo} autoPlay playsInline   />
       {peers.map((peer) => {
         return <Video key={peer.peerID} peer={peer.peer}  />;
       })}
       <div className='footer'>
         <div>
         <button onClick={audioToggle}>
-          mute
+           <i className="fas fa-microphone"></i>
+        </button>
+        <button>
+           <a href='/'>
+              <i className="fas fa-phone-alt leave-icon"></i>
+           </a>
         </button>
         <button onClick={videoToggle}>
-          camera off
+            <i className="fas fa-video"></i> 
         </button>
-        <a href='/'>
-          logout
-        </a>
         </div>
       </div>
     </Container>
