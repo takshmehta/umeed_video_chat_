@@ -1,5 +1,5 @@
 const Emails = require("../models/Emails");
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
 
 exports.getEmailById = (req, res, next, id) => {
   Emails.findById(id)
@@ -71,31 +71,37 @@ exports.updateEmails = (req, res) => {
   });
 };
 
-exports.sendEmail =(req,res) =>{
-  const {doctorMail, relativeOne, relativeTwo, relativeThree, link} = req.body;
+exports.sendEmail = (req, res) => {
+  const {
+    doctorMail,
+    relativeOne,
+    relativeTwo,
+    relativeThree,
+    link,
+  } = req.body;
   var transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "noahflynn71@gmail.com",
-        pass: "Expect@123",
-      },
-    });
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PSWD,
+    },
+  });
 
-    var mailOptions = {
-      from: "noahflynn71@gmail.com",
-      to: `${doctorMail}, ${relativeOne}, ${relativeTwo}, ${relativeThree}`,
-      subject: "Sending email using nodejs",
-      text: `Link for joining video is ${link} `,
-    };
+  var mailOptions = {
+    from: process.env.EMAIL,
+    to: `${doctorMail}, ${relativeOne}, ${relativeTwo}, ${relativeThree}`,
+    subject: "Video call joining link.",
+    text: `Link for joining video is ${link} `,
+  };
 
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.log(err);
-        return res.json({status:"fail"})
-      } else {
-        return res.json({
-          status:"success"
-        })
-      }
-    });
-}
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log(err);
+      return res.json({ status: "fail" });
+    } else {
+      return res.json({
+        status: "success",
+      });
+    }
+  });
+};
