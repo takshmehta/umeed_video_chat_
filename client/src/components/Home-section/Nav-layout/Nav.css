@@ -25,6 +25,7 @@
     border-color: #00b389!important;
     margin-left: 6rem;
     border-radius: 1rem!important;
+    letter-spacing: 1px;
 }
 .login-link{
     color: #00b389;
@@ -39,6 +40,7 @@
 .register-left-card{
     margin: 5rem 10rem;
     padding: 1rem 3rem;
+    letter-spacing: 1px;
     border: none!important;
 }
 

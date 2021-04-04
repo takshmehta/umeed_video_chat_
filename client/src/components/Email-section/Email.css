@@ -16,12 +16,14 @@
   border-color: #00b389 !important;
   margin-left: 6rem;
   border-radius: 1rem !important;
+  letter-spacing: 1px;
 }
 
 .email-left-card {
   margin: 5rem 12rem;
   padding: 1rem 3rem;
   border: none !important;
+  letter-spacing: 1px;
 }
 
 .email-left-card .form-control {
