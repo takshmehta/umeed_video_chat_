@@ -46,7 +46,7 @@ const Room = (props) => {
   const roomID = props.match.params.roomID;
 
   useEffect(() => {
-    socketRef.current = io.connect("/");
+    socketRef.current = io("https://infinite-journey-52315.herokuapp.com/");
     navigator.mediaDevices
       .getUserMedia({ video: videoConstraints, audio: true })
       .then((stream) => {
@@ -156,6 +156,16 @@ const Room = (props) => {
       userVideo.current.srcObject.getAudioTracks()[0].enabled = true;
     }
   };
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    toast("Copied meeting link", {
+      type: "success",
+      autoClose: 1500,
+      pauseOnHover: false,
+      transition: Zoom,
+    });
+  };
   console.log(peers);
   return (
     <Container>
@@ -175,15 +185,38 @@ const Room = (props) => {
         : null}
       <div className="footer">
         <div>
-          <button onClick={audioToggle}>
+          <button
+            className="copyButton"
+            style={{
+              position: "absolute",
+              bottom: "0.5",
+              left: "15px",
+              color: "#00b389",
+              fontSize: "1.5rem",
+              borderRadius: "10rem",
+              marginTop: "1.5rem",
+            }}
+            onClick={copyLink}
+          >
+            <i class="fas fa-copy"></i> Copy link
+          </button>
+          <button
+            onClick={audioToggle}
+            style={{ marginLeft: "1.2rem" }}
+            title="Microphone"
+          >
             <i className="fas fa-microphone"></i>
           </button>
-          <button>
+          <button title="End call">
             <a href="/">
               <i className="fas fa-phone-alt leave-icon"></i>
             </a>
           </button>
-          <button onClick={videoToggle}>
+          <button
+            onClick={videoToggle}
+            style={{ marginLeft: "-.5rem" }}
+            title="Camera"
+          >
             <i className="fas fa-video"></i>
           </button>
         </div>

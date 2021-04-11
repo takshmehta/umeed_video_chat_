@@ -19,7 +19,6 @@ function App() {
         <ProtectedRoute exact path="/register" component={RegisterPage} />
         <PrivateRoute exact path="/" component={CreateRoom} />
         <Route exact path="/room/:roomID" component={Room} />
-        <Route exact path="/error" component={Error} />
         <Route exact path="/forgot-password" component={ForgetPassword} />
         <Route
           exact
@@ -28,6 +27,7 @@ function App() {
         />
         <PrivateRoute exact path="/email" component={Email} />
         <PrivateRoute exact path="/update-email" component={UpdateEmail} />
+        <Route exact path="*" component={Error} />
       </Switch>
     </BrowserRouter>
   );

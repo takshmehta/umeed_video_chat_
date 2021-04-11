@@ -2,9 +2,12 @@
   "name": "auth",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": "14.7.0"
+  },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,12 +22,11 @@
     "express-jwt": "^6.0.0",
     "express-validator": "^6.10.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.18",
+    "mongoose": "^5.12.3",
     "nodemailer": "^6.4.18",
+    "nodemon": "^2.0.7",
     "socket.io": "^3.1.1",
     "uuid": "^8.3.1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.6"
-  }
+  "devDependencies": {}
 }

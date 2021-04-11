@@ -1,66 +1,74 @@
-*{
-    font-family: 'Roboto', sans-serif;
+* {
+  font-family: "MADE TOMMY", sans-serif;
 }
 
 /* register section style */
-.register-right-col{
-    background: url(/src/images/login-register-bg.jpg) no-repeat;
-    background-position: left;
-    background-size: cover;
-    width: 100%;
-    height: 49.5rem;
+.register-right-col {
+  margin-bottom: -100px;
+  background: url(/src/images/Doctor-And-Patients-2.svg) no-repeat;
+  background-position: right;
+  background-size: cover;
+  margin-left: -5rem;
 }
 
-.frgtimg{
-    background: url(/src/images/forget-reset-bg.jpg) no-repeat;
-    background-position: left;
-    background-size: cover;
-    width: 100%;
-    height: 49.5rem;
+.frgtimg {
+  background: url(/src/images/forget-reset-bg.jpg) no-repeat;
+  background-position: left;
+  background-size: cover;
+  /* margin-top: -1.5rem; */
+  /* width: 50%; */
+  height: 45rem;
+}
+.resetimg {
+  background: url(/src/images/reset-password.jpg) no-repeat;
+  background-position: left;
+  background-size: cover;
+  width: 100%;
+  /* margin-top: 5rem; */
+  height: 45rem;
 }
 
-
-.register-btn{
-    background-color: #00b389!important;
-    border-color: #00b389!important;
-    margin-left: 6rem;
-    border-radius: 1rem!important;
-    letter-spacing: 1px;
+.register-btn {
+  background-color: #00b389 !important;
+  border-color: #00b389 !important;
+  margin-left: 6rem;
+  border-radius: 10rem !important;
+  letter-spacing: 1px;
 }
-.login-link{
-    color: #00b389;
-    font-weight: bold;
+.login-link {
+  color: #00b389;
+  font-weight: 400;
 }
-.login-link:hover{
-    text-decoration: none;
-    color: #00b389;
-    font-weight: bold;
-}
-
-.register-left-card{
-    margin: 5rem 10rem;
-    padding: 1rem 3rem;
-    letter-spacing: 1px;
-    border: none!important;
+.login-link:hover {
+  text-decoration: none;
+  color: #00b389;
+  font-weight: 600;
 }
 
-.register-left-card .form-control{
-    border-radius: 1rem!important;
+.register-left-card {
+  margin: 5rem 10rem;
+  padding: 1rem 3rem;
+  /* letter-spacing: 1px; */
+  border: none !important;
 }
 
-.brand-logo-register-page{
-    margin: 1rem 0 2rem 0;
-    text-align: center;
-    color: #00b389;
-    font-weight: bold;
-    font-family: 'Ubuntu', sans-serif;
+.register-left-card .form-control {
+  border-radius: 1rem !important;
 }
 
-.heading1{
-    margin: 6rem 0 2rem 0;
-    font-family: 'Ubuntu', sans-serif;
-    text-align: center;
-    color: #00b389;
-    font-weight: bold;
-    font-size: 24px;
+.brand-logo-register-page {
+  margin: 1rem 0 2rem 0;
+  text-align: center;
+  color: #00b389;
+  font-weight: bold;
+  font-family: "MADE TOMMY", sans-serif;
+}
+
+.heading1 {
+  margin: 6rem 0 2rem 0;
+  font-family: "MADE TOMMY", sans-serif;
+  text-align: center;
+  color: #00b389;
+  font-weight: bold;
+  font-size: 24px;
 }

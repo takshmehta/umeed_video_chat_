@@ -66,7 +66,14 @@ const CreateRoom = (props) => {
   };
   return (
     <Container fluid>
-      <Navbar style={{ marginTop: ".8rem" }}>
+      <Navbar
+        style={{
+          marginLeft: "-15px",
+          marginRight: "-15px",
+          marginTop: ".8rem",
+          boxShadow: "0 10px 4px 0 rgba(0,0,0,0.3) ",
+        }}
+      >
         <Navbar.Brand href="/" className="brand-logo-dashboard">
           UMEED
         </Navbar.Brand>
@@ -92,10 +99,10 @@ const CreateRoom = (props) => {
             <h2>Secure Video Meetings</h2>
             <h5>Made in India, free and unlimited</h5>
             <Button type="submit" className="create-room-btn" onClick={create}>
-              CreateRoom
+              Create room
             </Button>
             <Button type="submit" className="update-btn">
-              <a href="/update-email">UpdateEmail</a>
+              <a href="/update-email">Update emails</a>
             </Button>
           </div>
         </Col>

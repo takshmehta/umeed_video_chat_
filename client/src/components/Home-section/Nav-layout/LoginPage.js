@@ -42,7 +42,7 @@ const LoginPage = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={6}>
+        <Col xs={6} style={{ marginTop: "4rem" }}>
           <Card className="register-left-card">
             <h1 className="brand-logo-register-page">UMEED</h1>
             <Form onSubmit={signIn}>
@@ -74,7 +74,11 @@ const LoginPage = () => {
                   <p>Forgot password</p>
                 </Link>
               </div>
-              <Button type="submit" className="register-btn ml-6">
+              <Button
+                type="submit"
+                className="register-btn"
+                style={{ marginLeft: "7.5rem" }}
+              >
                 Login
               </Button>
             </Form>
@@ -86,7 +90,11 @@ const LoginPage = () => {
             </div>
           </Card>
         </Col>
-        <Col xs={6} className="register-right-col"></Col>
+        <Col
+          xs={6}
+          className="register-right-col"
+          style={{ filter: "brightness(97%)" }}
+        ></Col>
       </Row>
       {performRedirect()}
     </Container>

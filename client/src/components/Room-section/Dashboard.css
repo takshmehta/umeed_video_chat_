@@ -1,9 +1,22 @@
+/* @import url("http://fonts.cdnfonts.com/css/made-tommy-outline"); */
+
+@font-face {
+  font-family: MADE TOMMY;
+  src: url(/src/fonts/made-tommy-regular-personal-use.otf);
+}
+
 .dashboard-right-col {
   background: url(/src/images/homeimage.jpg) no-repeat;
   background-position: center;
   background-size: contain;
   width: 100%;
-  height: 37rem;
+  margin-top: 1rem;
+  margin-left: -2rem;
+  height: 32rem;
+}
+
+.copyButton:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .show-email {
@@ -16,7 +29,9 @@
   box-sizing: border-box;
   width: 11rem;
   text-align: center;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
+  font-weight: 600;
+  font-family: "MADE TOMMY", sans-serif !important;
 }
 .show-email:hover {
   background-color: #ffff !important;
@@ -33,7 +48,9 @@
   font-size: 1.5rem !important;
   border-radius: 1.6rem !important;
   text-align: center;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
+  font-weight: 600 !important;
+  font-family: "MADE TOMMY", sans-serif !important;
 }
 .logout-btn:hover {
   background-color: #ffff !important;
@@ -46,8 +63,9 @@
   font-size: 3rem !important;
   font-weight: bold;
   margin-top: 0.5rem;
-  margin-left: 6.5rem;
+  margin-left: 7.6rem;
   cursor: pointer;
+  font-family: "MADE TOMMY", sans-serif !important;
 }
 .create-update-div {
   margin-top: 7rem;
@@ -56,33 +74,35 @@
 }
 .create-update-div h2 {
   font-size: 2.2rem;
-  font-weight: bold;
+  font-weight: bolder;
   letter-spacing: 1px;
   word-spacing: 1px;
+  font-family: "MADE TOMMY", sans-serif !important;
 }
 .create-update-div h5 {
   position: relative;
   top: 1.4rem;
+  font-family: "MADE TOMMY", sans-serif !important;
+
   /* letter-spacing: 1px; */
 }
 
 .create-room-btn,
 .update-btn {
-  margin-top: 5rem;
+  margin-top: 6.5rem;
   margin-right: 2rem;
   background-color: #00b389 !important;
-  font-size: 1.2rem !important;
-  font-weight: bolder !important;
-  border-radius: 3rem !important;
-  padding: 0.7rem;
+  font-size: 1.5rem !important;
+  height: 3rem;
+  border-radius: 1.6rem !important;
   border: 1px solid #00b389;
-  letter-spacing: 1px;
+  font-weight: 600 !important;
+  font-family: "MADE TOMMY", sans-serif !important;
 }
 
 .create-update-div button {
-  padding: 0.7rem;
   border: 1px solid #00b389;
-  letter-spacing: 2px;
+  font-family: "MADE TOMMY", sans-serif !important;
 }
 
 .create-update-div button:hover {
@@ -93,7 +113,7 @@
 .update-btn a {
   text-decoration: none;
   color: #fff;
-  
+  font-family: "MADE TOMMY", sans-serif !important;
 }
 .update-btn a:hover {
   text-decoration: none;
@@ -109,41 +129,40 @@
   left: 0;
 }
 
-
-.footer button{
+.footer button {
   margin-top: 1rem;
   background-color: #fff;
-  border:none;
+  border: none;
   font-size: 2rem;
-  margin-right: 4rem;
-  color: #00b389;
+  margin-right: 3rem;
+  /* color: #05c598; */
+  color: rgba(0, 0, 0, 0.5);
   border: 2px solid #d6d6d6;
   border-radius: 1rem;
-  padding: .1rem 1rem;
+  padding: 0.1rem 1rem;
 }
 
-.footer a{
+.footer a {
   color: #00b389;
 }
 
-
-.footer a:hover{
+.footer a:hover {
   color: #00b389;
 }
 
-
-.footer button:hover{
+.footer button:hover {
   color: #00b389;
   border: 2px solid #d6d6d6;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.leave-icon{
+.leave-icon {
   transform: rotateZ(136deg);
+  color: red;
 }
-
 
 .bg-video-tag {
-  background: url(https://picsum.photos/20) no-repeat;
+  /* background: url(https://picsum.photos/20) no-repeat; */
   width: 100%;
   height: 10rem;
 }
