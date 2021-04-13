@@ -4,10 +4,11 @@
 
 /* register section style */
 .register-right-col {
-  margin-bottom: -100px;
+  margin-top: 1rem;
+  margin-bottom: -9rem;
   background: url(/src/images/Doctor-And-Patients-2.svg) no-repeat;
   background-position: right;
-  background-size: cover;
+  background-size: contain;
   margin-left: -5rem;
 }
 
@@ -31,7 +32,7 @@
 .register-btn {
   background-color: #00b389 !important;
   border-color: #00b389 !important;
-  margin-left: 6rem;
+  margin-left: 7.5rem;
   border-radius: 10rem !important;
   letter-spacing: 1px;
 }
@@ -45,9 +46,15 @@
   font-weight: 600;
 }
 
+.register-left-col {
+  margin-top: 4%;
+}
+
 .register-left-card {
-  margin: 5rem 10rem;
-  padding: 1rem 3rem;
+  /* margin: 5rem 10rem; */
+  margin: 10% 20%;
+  padding: 3% 6%;
+  /* padding: 1rem 3rem; */
   /* letter-spacing: 1px; */
   border: none !important;
 }
@@ -71,4 +78,85 @@
   color: #00b389;
   font-weight: bold;
   font-size: 24px;
+}
+
+/* 
+login section responsiveness */
+
+@media screen and (max-width: 992px) {
+  .register-left-card {
+    margin: 7% 15%;
+    padding: 3% 6%;
+    border: none !important;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .register-left-card {
+    margin: 3% 8%;
+    padding: 0.2% 20%;
+    border: none !important;
+  }
+  .brand-logo-register-page {
+    font-size: 1.3rem;
+    margin: 1rem 0 2rem 0;
+    text-align: center;
+    color: #00b389;
+    font-weight: bold;
+    font-family: "MADE TOMMY", sans-serif;
+  }
+}
+
+/* //phone view */
+
+@media screen and (max-width: 600px) {
+  .register-left-col,
+  .register-right-col {
+    width: 50% !important;
+  }
+  .register-left-card {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    border: none !important;
+  }
+  .brand-logo-register-page {
+    font-size: 2.2rem;
+    position: relative;
+    left: 50%;
+  }
+  .register-right-col {
+    margin-top: 6rem;
+    background-position: top;
+    margin-left: 0rem;
+  }
+
+  .register-btn {
+    margin-left: 0.5rem;
+  }
+  .register-left-card .form-label,
+  .register-left-card .form-control {
+    font-size: 0.8rem;
+  }
+  .login-link p {
+    font-size: 0.8rem;
+  }
+  .register-btn {
+    font-size: 0.8rem !important;
+  }
+  .register-card-bottom-text,
+  .login-card-bottom-text {
+    font-size: 0.8rem;
+    margin-top: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .register-card-bottom-text {
+    position: relative;
+  }
+  .register-card-bottom-text .login-link {
+    position: relative;
+    top: -1.2rem;
+    left: 6.2rem;
+  }
 }
