@@ -47,7 +47,7 @@ const RegisterPage = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={6}>
+        <Col lg={6} md={6} sm={6}>
           <Card className="register-left-card">
             <h1 className="brand-logo-register-page">UMEED</h1>
             <Form onSubmit={signUp}>
@@ -91,7 +91,7 @@ const RegisterPage = () => {
                 Register
               </Button>
             </Form>
-            <div className="w-100 text-center mt-3">
+            <div className="w-100 text-center mt-3 login-card-bottom-text">
               Already have an account?
               <Link to="/login" className="login-link">
                 <span> Login</span>
@@ -100,7 +100,7 @@ const RegisterPage = () => {
           </Card>
         </Col>
         <Col
-          xs={6}
+          lg={6} md={6} sm={6}
           className="register-right-col"
           style={{ filter: "brightness(97%)" }}
         ></Col>
