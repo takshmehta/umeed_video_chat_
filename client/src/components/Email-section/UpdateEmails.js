@@ -77,7 +77,7 @@ const UpdateEmails = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={6}>
+        <Col xs={6} style={{ marginTop: "1.5rem" }}>
           <Card className="email-left-card">
             <h1 className="brand-logo-email-page">UMEED</h1>
             <h5 className="text-center mb-4 email-header">Update emails</h5>

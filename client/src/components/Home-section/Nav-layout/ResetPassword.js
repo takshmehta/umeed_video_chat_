@@ -71,13 +71,17 @@ const ResetPassword = () => {
                 </Form.Group>
                 <p style={{ color: "red" }}>{error}</p>
 
-                <Button type="submit" className="register-btn">
+                <Button
+                  type="submit"
+                  className="register-btn"
+                  style={{ marginLeft: "4.5rem" }}
+                >
                   Change Password
                 </Button>
               </Form>
             </Card>
           </Col>
-          <Col xs={6} className="register-right-col frgtimg"></Col>
+          <Col xs={6} className="register-right-col resetimg"></Col>
         </Row>
         {performRedirect()}
       </Container>

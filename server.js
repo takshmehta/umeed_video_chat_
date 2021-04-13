@@ -4,12 +4,16 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const socket = require("socket.io");
-const io = socket(server);
+const io = socket(server, {
+  cors: {
+    origin: "*",
+  },
+});
 const cors = require("cors");
-const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/route_auth");
 const emailRoute = require("./routes/route_email");
+const bodyParser = require("body-parser");
 
 const users = {};
 const socketToRoom = {};
@@ -52,13 +56,13 @@ io.on("connection", (socket) => {
       room = room.filter((id) => id !== socket.id);
       users[roomID] = room;
     }
-    socket.broadcast.emit('user left', socket.id);
+    socket.broadcast.emit("user left", socket.id);
   });
 });
 
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(bodyparser.json());
+app.use(bodyParser.json());
 
 //connecting with database
 db = process.env.DATABASE_URI;
@@ -76,7 +80,6 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
 
 // middlewares
 app.use(cors());

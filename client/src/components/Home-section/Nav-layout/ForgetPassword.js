@@ -3,6 +3,8 @@ import { Form, Button, Card } from "react-bootstrap";
 import { forgetpswd } from "../../authorization-authenticate-section/index";
 import { Container, Row, Col } from "react-bootstrap";
 import "./Nav.css";
+import { toast, ToastContainer, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const ForgetPassword = () => {
   const [email, setemail] = useState("");
@@ -17,7 +19,12 @@ const ForgetPassword = () => {
         } else {
           setemail("");
           setError("");
-          alert("Email sent!");
+          toast("Email sent for resetting password!!", {
+            type: "success",
+            autoClose: 2000,
+            pauseOnHover: false,
+            transition: Zoom,
+          });
         }
       })
       .catch((err) => {
@@ -27,11 +34,12 @@ const ForgetPassword = () => {
   return (
     <>
       <Container fluid>
+        <ToastContainer position="top-left" />
         <Row>
           <Col xs={6}>
             <Card className="register-left-card">
               <h1 className="brand-logo-register-page heading1">
-                Enter your registered email to reset password
+                Enter your registered email to reset your password
               </h1>
               <Form onSubmit={frgtPswd}>
                 <Form.Group controlId="formBasicEmail">
@@ -48,7 +56,11 @@ const ForgetPassword = () => {
                   />
                 </Form.Group>
                 <p style={{ color: "red" }}>{error}</p>
-                <Button type="submit" className="register-btn">
+                <Button
+                  type="submit"
+                  className="register-btn"
+                  style={{ marginLeft: "4.5rem" }}
+                >
                   Reset Password
                 </Button>
               </Form>

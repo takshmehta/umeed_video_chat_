@@ -1,21 +1,24 @@
 * {
-  font-family: "Roboto", sans-serif;
+  max-height: 100vh;
+  max-width: 100vw;
 }
 /* register section style */
 .email-right-col {
-  background: url(/src/images/add-email-bg.jpg) no-repeat;
+  background: url(/src/images/3727319.jpg) no-repeat;
   background-position: center;
   background-size: cover;
-  width: 100%;
-  height: 49.5rem;
+  margin-top: 1rem;
+  margin-left: -80px;
+  width: 10%;
+  height: 40rem;
   object-fit: contain;
 }
 
 .add-email-submit-btn {
   background-color: #00b389 !important;
   border-color: #00b389 !important;
-  margin-left: 6rem;
-  border-radius: 1rem !important;
+  margin-left: 5.5rem;
+  border-radius: 10rem !important;
   letter-spacing: 1px;
 }
 
@@ -34,7 +37,7 @@
   text-align: center;
   color: #00b389;
   font-weight: bold;
-  font-family: "Ubuntu", sans-serif;
+  /* font-family: "Ubuntu", sans-serif; */
 }
 
 .email-header {
