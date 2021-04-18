@@ -49,7 +49,9 @@ const RegisterPage = () => {
       <Row>
         <Col lg={6} md={6} sm={6}>
           <Card className="register-left-card">
-            <h1 className="brand-logo-register-page">UMEED</h1>
+            <h1 className="brand-logo-register-page animate__animated animate__flipInX">
+              UMEED
+            </h1>
             <Form onSubmit={signUp}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Name</Form.Label>
@@ -100,7 +102,9 @@ const RegisterPage = () => {
           </Card>
         </Col>
         <Col
-          lg={6} md={6} sm={6}
+          lg={6}
+          md={6}
+          sm={6}
           className="register-right-col"
           style={{ filter: "brightness(97%)" }}
         ></Col>

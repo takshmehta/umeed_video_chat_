@@ -42,9 +42,11 @@ const LoginPage = () => {
   return (
     <Container fluid>
       <Row>
-        <Col lg={6} md={6} sm={6}  className="register-left-col">
+        <Col lg={6} md={6} sm={6} className="register-left-col">
           <Card className="register-left-card">
-            <h1 className="brand-logo-register-page">UMEED</h1>
+            <h1 className="brand-logo-register-page animate__animated  animate__flipInX">
+              UMEED
+            </h1>
             <Form onSubmit={signIn}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -74,11 +76,7 @@ const LoginPage = () => {
                   <p>Forgot password</p>
                 </Link>
               </div>
-              <Button
-                type="submit"
-                className="register-btn"
-                
-              >
+              <Button type="submit" className="register-btn">
                 Login
               </Button>
             </Form>

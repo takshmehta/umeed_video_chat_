@@ -79,7 +79,9 @@ const UpdateEmails = () => {
       <Row>
         <Col xs={6} style={{ marginTop: "1.5rem" }}>
           <Card className="email-left-card">
-            <h1 className="brand-logo-email-page">UMEED</h1>
+            <h1 className="brand-logo-email-page animate__animated animate__flipInX">
+              UMEED
+            </h1>
             <h5 className="text-center mb-4 email-header">Update emails</h5>
             <Form onSubmit={Update}>
               <Form.Group id="email">

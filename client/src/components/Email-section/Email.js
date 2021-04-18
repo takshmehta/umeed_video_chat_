@@ -66,7 +66,9 @@ const Email = () => {
       <Row>
         <Col lg={6} md={6} sm={6} className="email-left-col">
           <Card className="email-left-card">
-            <h1 className="brand-logo-email-page">UMEED</h1>
+            <h1 className="brand-logo-email-page animate__animated  animate__flipInX">
+              UMEED
+            </h1>
             <h5 className="text-center mb-4 email-header">
               Add Emails for quick calls
             </h5>
@@ -111,11 +113,7 @@ const Email = () => {
                   required
                 />
               </Form.Group>
-              <Button
-                type="submit"
-                className="add-email-submit-btn"
-                
-              >
+              <Button type="submit" className="add-email-submit-btn">
                 Save all
               </Button>
             </Form>

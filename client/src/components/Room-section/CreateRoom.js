@@ -5,7 +5,7 @@ import {
   viewEmails,
 } from "../authorization-authenticate-section/emailHelper";
 import { isAuthenticated } from "../authorization-authenticate-section";
-import { Container, Row, Col,Dropdown } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import { Button, Navbar, Nav } from "react-bootstrap";
 
 import "./Dashboard.css";
@@ -66,53 +66,55 @@ const CreateRoom = (props) => {
   };
   return (
     <Container fluid>
-       <Navbar 
-             collapseOnSelect
-             expand="lg"
-             className="navbar-bottom-shadow"
+      <Navbar collapseOnSelect expand="lg" className="navbar-bottom-shadow">
+        <Navbar.Brand href="/" className="brand-logo-dashboard">
+          UMEED
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="justify-content-end "
+        >
+          <div className="dropdown">
+            <button className="dropbtn show-email">Show emails</button>
+            <div className="dropdown-content">
+              <span>{doctorMail}</span>
+              <span>{relativeOne}</span>
+              <span>{relativeTwo}</span>
+              <span>{relativeThree}</span>
+            </div>
+          </div>
+          <Button type="submit" className="logout-btn" onClick={handleLogout}>
+            Logout
+          </Button>
+        </Navbar.Collapse>
+      </Navbar>
+      <Row className="create-room-row-1">
+        <Col className="create-room-left-col">
+          <div className="create-update-div">
+            <h2>High quality,</h2>
+            <h2>Secure Video Meetings</h2>
+            <h5>Made in India, free and unlimited</h5>
+            <Button
+              type="submit"
+              className="create-room-btn animate__animated animate__fadeInLeft"
+              onClick={create}
             >
-            <Navbar.Brand href="/" className="brand-logo-dashboard">
-             UMEED
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end "> 
-               <div className="dropdown">
-                 <button className="dropbtn show-email">Show emails</button>
-                 <div className="dropdown-content">
-                   <span>{doctorMail}</span>
-                   <span>{relativeOne}</span>
-                   <span>{relativeTwo}</span>
-                   <span>{relativeThree}</span>
-                 </div>
-               </div>
-               <Button type="submit" className="logout-btn" onClick={handleLogout}>
-                       Logout
-                </Button>
-            </Navbar.Collapse>
-       </Navbar>
-       <Row className="create-room-row-1">
-         <Col 
-            className="create-room-left-col"
+              Create room
+            </Button>
+            <Button
+              type="submit"
+              className="update-btn animate__animated animate__fadeInRight"
             >
-             <div className="create-update-div">
-                  <h2>High quality,</h2>
-                  <h2>Secure Video Meetings</h2>
-                  <h5>Made in India, free and unlimited</h5>
-                  <Button type="submit" className="create-room-btn" onClick={create}>
-                    Create room
-                  </Button>
-                  <Button type="submit" className="update-btn">
-                    <a href="/update-email">Update emails</a>
-                  </Button>
-             </div>
+              <a href="/update-email">Update emails</a>
+            </Button>
+          </div>
         </Col>
-         <Col 
-             className="create-room-right-col"
-             >
-             <div className="dashboard-right-col"></div>
-         </Col>
-       </Row>
-  </Container>
+        <Col className="create-room-right-col">
+          <div className="dashboard-right-col"></div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
