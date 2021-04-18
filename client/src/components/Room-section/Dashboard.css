@@ -5,6 +5,13 @@
   src: url(/src/fonts/made-tommy-regular-personal-use.otf);
 }
 
+.navbar-bottom-shadow {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 0.8rem;
+  box-shadow: 0 10px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
 .dashboard-right-col {
   background: url(/src/images/homeimage.jpg) no-repeat;
   background-position: center;
@@ -213,3 +220,127 @@
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
+
+@media screen and (max-width: 992px) {
+  .brand-logo-dashboard {
+    margin-left: 1rem;
+  }
+  .create-update-div {
+    margin-left: 1rem;
+  }
+  .show-email {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .brand-logo-dashboard {
+    margin-left: 1rem;
+    font-size: 2rem !important;
+  }
+  .show-email {
+    margin-bottom: 1.5rem;
+    font-size: 1rem !important;
+    width: 8rem;
+  }
+  .logout-btn {
+    font-size: 1rem !important;
+    width: 8rem;
+  }
+  .create-room-row-1 {
+    flex-direction: column-reverse;
+  }
+
+  .dashboard-right-col {
+    margin-left: 0rem;
+    height: 16rem;
+  }
+  .create-update-div {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
+  .create-update-div h2 {
+    font-size: 1.5rem;
+  }
+  .create-update-div h5 {
+    font-size: 1rem;
+  }
+  .create-room-btn,
+  .update-btn {
+    margin-top: 2rem;
+    font-size: 1rem !important;
+    height: 2.4rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* 
+@media screen and (max-width: 570px) {
+  .dashboard-right-col {
+    position: relative;
+    top: -49rem;
+    margin-left: 1rem;
+    width: 77%;
+  }
+  .dashboard-left-col {
+    position: relative !important;
+    top: 17rem;
+  }
+  .create-update-div {
+    margin-left: 0.5rem;
+  }
+  .create-room-btn,
+  .update-btn {
+    margin-top: 2rem;
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .dashboard-right-col {
+    position: relative;
+    top: -31rem;
+    margin-left: 1rem;
+    width: 78%;
+  }
+  .dashboard-left-col {
+    position: relative !important;
+    top: 17rem;
+  }
+  .create-update-div {
+    margin-left: 0.5rem;
+    position: relative;
+    top: -5rem;
+  }
+  .create-update-div h2 {
+    font-size: 1.5rem;
+  }
+  .create-update-div h5 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .dashboard-right-col {
+    position: relative;
+    top: -55rem;
+    margin-left: 1rem;
+    width: 90%;
+  }
+  .dashboard-left-col {
+    position: relative !important;
+    top: 17rem;
+  }
+  .create-update-div {
+    margin-left: 4.5rem;
+    position: relative;
+    top: -5rem;
+  }
+  .create-update-div h2 {
+    font-size: 1.5rem;
+  }
+  .create-update-div h5 {
+    font-size: 1rem;
+  }
+} */
