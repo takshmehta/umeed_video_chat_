@@ -22,6 +22,16 @@
   height: 32rem;
 }
 
+.copyButton {
+  position: absolute;
+  bottom: 0.5;
+  left: 15px;
+  color: #00b389;
+  font-size: 1.5rem;
+  border-radius: 10rem;
+  margin-top: 1.5rem;
+}
+
 .copyButton:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -273,74 +283,16 @@
     height: 2.4rem;
     letter-spacing: 1px;
   }
-}
-
-/* 
-@media screen and (max-width: 570px) {
-  .dashboard-right-col {
-    position: relative;
-    top: -49rem;
-    margin-left: 1rem;
-    width: 77%;
+  .bg-video-tag {
+    width: 40% !important;
+    margin-right: 1rem;
   }
-  .dashboard-left-col {
-    position: relative !important;
-    top: 17rem;
-  }
-  .create-update-div {
-    margin-left: 0.5rem;
-  }
-  .create-room-btn,
-  .update-btn {
-    margin-top: 2rem;
+  .copyButton {
     font-size: 1rem !important;
+    border-radius: 10rem;
+    margin-top: -3rem !important;
+  }
+  .footer button {
+    font-size: 1.5rem !important;
   }
 }
-
-@media screen and (max-width: 400px) {
-  .dashboard-right-col {
-    position: relative;
-    top: -31rem;
-    margin-left: 1rem;
-    width: 78%;
-  }
-  .dashboard-left-col {
-    position: relative !important;
-    top: 17rem;
-  }
-  .create-update-div {
-    margin-left: 0.5rem;
-    position: relative;
-    top: -5rem;
-  }
-  .create-update-div h2 {
-    font-size: 1.5rem;
-  }
-  .create-update-div h5 {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 330px) {
-  .dashboard-right-col {
-    position: relative;
-    top: -55rem;
-    margin-left: 1rem;
-    width: 90%;
-  }
-  .dashboard-left-col {
-    position: relative !important;
-    top: 17rem;
-  }
-  .create-update-div {
-    margin-left: 4.5rem;
-    position: relative;
-    top: -5rem;
-  }
-  .create-update-div h2 {
-    font-size: 1.5rem;
-  }
-  .create-update-div h5 {
-    font-size: 1rem;
-  }
-} */
