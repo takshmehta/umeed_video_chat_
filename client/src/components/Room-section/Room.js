@@ -171,7 +171,7 @@ const Room = (props) => {
     <Container>
       <ToastContainer position="top-right" />
 
-      <StyledVideo ref={userVideo} autoPlay playsInline muted />
+      <StyledVideo ref={userVideo} autoPlay playsInline muted className="bg-video-tag" />
       {peers.map((peer) => {
         return <Video key={peer.peerID} peer={peer.peer} />;
       })}
@@ -187,15 +187,7 @@ const Room = (props) => {
         <div>
           <button
             className="copyButton"
-            style={{
-              position: "absolute",
-              bottom: "0.5",
-              left: "15px",
-              color: "#00b389",
-              fontSize: "1.5rem",
-              borderRadius: "10rem",
-              marginTop: "1.5rem",
-            }}
+            
             onClick={copyLink}
           >
             <i class="fas fa-copy"></i> Copy link

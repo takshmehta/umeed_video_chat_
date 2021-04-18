@@ -5,6 +5,13 @@
   src: url(/src/fonts/made-tommy-regular-personal-use.otf);
 }
 
+.navbar-bottom-shadow {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 0.8rem;
+  box-shadow: 0 10px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
 .dashboard-right-col {
   background: url(/src/images/homeimage.jpg) no-repeat;
   background-position: center;
@@ -13,6 +20,16 @@
   margin-top: 1rem;
   margin-left: -2rem;
   height: 32rem;
+}
+
+.copyButton {
+  position: absolute;
+  bottom: 0.5;
+  left: 15px;
+  color: #00b389;
+  font-size: 1.5rem;
+  border-radius: 10rem;
+  margin-top: 1.5rem;
 }
 
 .copyButton:hover {
@@ -212,4 +229,70 @@
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+@media screen and (max-width: 992px) {
+  .brand-logo-dashboard {
+    margin-left: 1rem;
+  }
+  .create-update-div {
+    margin-left: 1rem;
+  }
+  .show-email {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .brand-logo-dashboard {
+    margin-left: 1rem;
+    font-size: 2rem !important;
+  }
+  .show-email {
+    margin-bottom: 1.5rem;
+    font-size: 1rem !important;
+    width: 8rem;
+  }
+  .logout-btn {
+    font-size: 1rem !important;
+    width: 8rem;
+  }
+  .create-room-row-1 {
+    flex-direction: column-reverse;
+  }
+
+  .dashboard-right-col {
+    margin-left: 0rem;
+    height: 16rem;
+  }
+  .create-update-div {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
+  .create-update-div h2 {
+    font-size: 1.5rem;
+  }
+  .create-update-div h5 {
+    font-size: 1rem;
+  }
+  .create-room-btn,
+  .update-btn {
+    margin-top: 2rem;
+    font-size: 1rem !important;
+    height: 2.4rem;
+    letter-spacing: 1px;
+  }
+  .bg-video-tag {
+    width: 40% !important;
+    margin-right: 1rem;
+  }
+  .copyButton {
+    font-size: 1rem !important;
+    border-radius: 10rem;
+    margin-top: -3rem !important;
+  }
+  .footer button {
+    font-size: 1.5rem !important;
+  }
 }

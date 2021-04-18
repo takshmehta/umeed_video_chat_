@@ -64,7 +64,7 @@ const Email = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={6}>
+        <Col lg={6} md={6} sm={6} className="email-left-col">
           <Card className="email-left-card">
             <h1 className="brand-logo-email-page">UMEED</h1>
             <h5 className="text-center mb-4 email-header">
@@ -114,14 +114,14 @@ const Email = () => {
               <Button
                 type="submit"
                 className="add-email-submit-btn"
-                style={{ marginLeft: "4.5rem" }}
+                
               >
                 Save all
               </Button>
             </Form>
           </Card>
         </Col>
-        <Col xs={6} className="email-right-col"></Col>
+        <Col lg={6} md={6} sm={6} className="email-right-col"></Col>
       </Row>
       {performRedirect()}
     </Container>
