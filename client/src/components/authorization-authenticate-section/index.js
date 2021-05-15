@@ -1,5 +1,6 @@
+import { API } from "../../backend";
 export const signup = (user) => {
-  return fetch("https://infinite-journey-52315.herokuapp.com/api/signup", {
+  return fetch(`${API}/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -16,7 +17,7 @@ export const signup = (user) => {
 };
 
 export const signin = (user) => {
-  return fetch("https://infinite-journey-52315.herokuapp.com/api/signin", {
+  return fetch(`${API}/signin`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -33,17 +34,14 @@ export const signin = (user) => {
 };
 
 export const resetpswd = (user) => {
-  return fetch(
-    `https://infinite-journey-52315.herokuapp.com/api/resetpswd/${user.email}/${user.resettoken}`,
-    {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    }
-  )
+  return fetch(`${API}/resetpswd/${user.email}/${user.resettoken}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
     .then((response) => {
       return response.json();
     })
@@ -53,7 +51,7 @@ export const resetpswd = (user) => {
 };
 
 export const forgetpswd = (email) => {
-  return fetch("https://infinite-journey-52315.herokuapp.com/api/forgotpswd", {
+  return fetch(`${API}/forgotpswd`, {
     method: "POST",
     headers: {
       Accept: "application/json",

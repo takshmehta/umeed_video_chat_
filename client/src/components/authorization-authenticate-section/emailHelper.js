@@ -1,18 +1,16 @@
+import { API } from "../../backend";
 export const saveEmails = (userId, token, emails) => {
   // console.log("from here");
   // console.log(emails);
-  return fetch(
-    `https://infinite-journey-52315.herokuapp.com/api/email/${userId}`,
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(emails),
-    }
-  )
+  return fetch(`${API}/email/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(emails),
+  })
     .then((response) => {
       return response.json();
     })
@@ -22,16 +20,13 @@ export const saveEmails = (userId, token, emails) => {
 };
 
 export const viewEmails = (userId) => {
-  return fetch(
-    `https://infinite-journey-52315.herokuapp.com/api/emails/${userId}`,
-    {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  return fetch(`${API}/emails/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => {
       return response.json();
     })
@@ -41,18 +36,15 @@ export const viewEmails = (userId) => {
 };
 
 export const updateEmails = (userId, token, emailId, emails) => {
-  return fetch(
-    `https://infinite-journey-52315.herokuapp.com/api/email/${userId}/${emailId}`,
-    {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(emails),
-    }
-  )
+  return fetch(`${API}/email/${userId}/${emailId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(emails),
+  })
     .then((response) => {
       return response.json();
     })
@@ -62,7 +54,7 @@ export const updateEmails = (userId, token, emailId, emails) => {
 };
 
 export const sendEmailLink = (emails, link) => {
-  return fetch("https://infinite-journey-52315.herokuapp.com/api/access", {
+  return fetch(`${API}/access`, {
     method: "POST",
     headers: {
       Accept: "application/json",
