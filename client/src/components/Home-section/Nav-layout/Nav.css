@@ -2,6 +2,10 @@
   font-family: "MADE TOMMY", sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
+
 /* register section style */
 .register-right-col {
   margin-top: 1rem;
